@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
 </head>
 <body>
-    All users
-<h2><a href="/editUser">Edit user</a></h2>
-<h2><a href="/getUserByCar">Get user by id</a></h2>
-<h2><a href="/deleteUser">Delete user</a></h2>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="user, state : ${allUsers}"
+        class="row" th:classappend="${state.odd} ? 'odd-row' : 'even-row'">
+        <td th:utext="${user.id}">Id</td>
+        <td th:utext="${user.name}">model</td>
+        <td th:utext="${user.lastName}">color</td>
+        <td><a th:href=@{/user/update/{id}(id=${user.id})}>Edit</a>
+            <a href="/delete/${user.id}">Delete</a></td>
+    </tr>
+</table>
+<h2><a href="/user/getById">Get user by id</a></h2>
+<h2><a href="user/add">Add new user</a></h2>
 </body>
 </html>

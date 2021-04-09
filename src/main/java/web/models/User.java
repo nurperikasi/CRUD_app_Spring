@@ -2,7 +2,7 @@ package web.models;
 
 public class User {
 
-    private long id;
+    private int id;
 
     private String name;
 
@@ -16,11 +16,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -38,5 +38,13 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "User: " +
+                "id=" + id +
+                ", name='" + name +
+                ", lastName='" + lastName ;
     }
 }
