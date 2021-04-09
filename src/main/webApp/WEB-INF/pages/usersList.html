@@ -15,13 +15,13 @@
     <tr th:each="user, state : ${allUsers}"
         class="row" th:classappend="${state.odd} ? 'odd-row' : 'even-row'">
         <td th:utext="${user.id}">Id</td>
-        <td th:utext="${user.name}">model</td>
-        <td th:utext="${user.lastName}">color</td>
-        <td><a th:href=@{/user/update/{id}(id=${user.id})}>Edit</a>
-            <a href="/delete/${user.id}">Delete</a></td>
+        <td th:utext="${user.name}">Name</td>
+        <td th:utext="${user.lastName}">LastNamer</td>
+        <td><a th:href="@{/user/update/{id}(id=${user.id})}">Edit</a>
+            <a th:href="@{/user/delete/{id}(id=${user.id})}">Delete</a>
+        </td>
     </tr>
 </table>
-<h2><a href="/user/getById">Get user by id</a></h2>
-<h2><a href="user/add">Add new user</a></h2>
+<h2><a href="/user/addPage">Add new user</a></h2>
 </body>
 </html>
