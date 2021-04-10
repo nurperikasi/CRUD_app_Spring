@@ -14,14 +14,6 @@ public class User {
 
     private  String lastName;
 
-    public User() {
-    }
-
-    public User(String name, String lastName) {
-        this.name = name;
-        this.lastName = lastName;
-    }
-
     public int getId() {
         return id;
     }

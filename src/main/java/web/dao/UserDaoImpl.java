@@ -1,24 +1,28 @@
 package web.dao;
 
+import org.hibernate.internal.SessionFactoryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import web.models.User;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.util.List;
 
 
-@Repository
+@Component
+@Transactional
 public class UserDaoImpl implements UserDao{
 
+    @Autowired
     @PersistenceContext
     EntityManager entityManager;
 
     @Override
     public List<User> allUsers() {
-        return entityManager.createQuery("select u from User u",User.class).getResultList();
+        return  entityManager.createQuery("select u from User u",User.class).getResultList();
+
     }
 
     @Override

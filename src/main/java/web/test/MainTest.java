@@ -8,10 +8,13 @@ import web.service.UserServiceImpl;
 
 public class MainTest {
     public static void main(String[] args) {
+
         UserService userService = new UserServiceImpl(new UserDaoImpl());
 
-        userService.add(new User("name1", "lastName1"));
+        User user1 = new User();
+        user1.setName("nora");
+        user1.setLastName("lola");
+        userService.add(user1);
 
-        userService.add(new User("name2", "lastName2"));
     }
 }
