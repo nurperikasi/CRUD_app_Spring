@@ -1,8 +1,5 @@
 package web.dao;
 
-import org.hibernate.internal.SessionFactoryImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import web.models.User;
 
@@ -11,18 +8,16 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 
-@Component
+@Repository
 @Transactional
 public class UserDaoImpl implements UserDao{
 
-    @Autowired
     @PersistenceContext
     EntityManager entityManager;
 
     @Override
     public List<User> allUsers() {
         return  entityManager.createQuery("select u from User u",User.class).getResultList();
-
     }
 
     @Override
@@ -37,7 +32,7 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public void update(User user) {
-        entityManager.persist(user);
+        entityManager.merge(user);
     }
 
     @Override

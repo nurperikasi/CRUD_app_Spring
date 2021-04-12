@@ -1,14 +1,10 @@
 package web.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.models.User;
 import web.service.UserService;
-import web.service.UserServiceImpl;
 
 import java.util.List;
 
@@ -18,7 +14,6 @@ public class UserController {
 
     UserService userService;
 
-    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -29,14 +24,6 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("usersList");
         modelAndView.addObject("allUsers", list);
-        return modelAndView;
-    }
-
-    @GetMapping("/getById/${id}")
-    public ModelAndView getUserById(@PathVariable("id") int id) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("user", userService.getById(id));
-        modelAndView.setViewName("getUserById");
         return modelAndView;
     }
 

@@ -9,7 +9,6 @@
       th:action="@{/user/add}"
       th:object="${user}"
       method="post">
-    <input type="hidden" name="id"  th:field="*{id}" value="$*{user.id}">
     <label for="name">Name</label>
   <input type="text" th:field="*{name}" id="name">
   <label for="lastName">Last Name</label>

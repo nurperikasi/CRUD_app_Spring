@@ -10,8 +10,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column
     private String name;
 
+    @Column(name = "last_name")
     private  String lastName;
 
     public int getId() {
@@ -38,11 +40,4 @@ public class User {
         this.lastName = lastName;
     }
 
-    @Override
-    public String toString() {
-        return "User: " +
-                "id=" + id +
-                ", name='" + name +
-                ", lastName='" + lastName ;
-    }
 }
