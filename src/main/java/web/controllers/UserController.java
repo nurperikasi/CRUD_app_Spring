@@ -9,7 +9,7 @@ import web.service.UserService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/")
 public class UserController {
 
     UserService userService;
@@ -18,7 +18,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping()
+
+    @GetMapping("/user")
     public ModelAndView allUsers() {
         List<User> list = userService.allUsers();
         ModelAndView modelAndView = new ModelAndView();

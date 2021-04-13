@@ -18,7 +18,7 @@ import java.util.Properties;
 @Configuration
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-public class AppConfig {
+public class HiberConfig {
 
     @Autowired
     Environment env;

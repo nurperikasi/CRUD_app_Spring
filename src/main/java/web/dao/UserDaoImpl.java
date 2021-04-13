@@ -1,10 +1,12 @@
 package web.dao;
 
 import org.springframework.stereotype.Repository;
+import web.models.Role;
 import web.models.User;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.List;
 
 
