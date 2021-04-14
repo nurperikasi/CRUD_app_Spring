@@ -9,5 +9,8 @@
         <module name="CRUD_app_Spring" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="CRUD_app_Spring" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
