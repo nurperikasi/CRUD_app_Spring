@@ -26,8 +26,12 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class HiberConfig {
 
-    @Autowired
+    final
     Environment env;
+
+    public HiberConfig(Environment env) {
+        this.env = env;
+    }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
